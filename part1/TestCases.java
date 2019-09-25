@@ -195,7 +195,8 @@ public class TestCases
             new Course("CPE 203", 4),
             new Course("CPE 225", 4)));
       courseListsByStudent.put("Andrew",
-         Arrays.asList(                                                                                                             new Course("CPE 101", 4),
+         Arrays.asList(
+            new Course("MATH 143", 4),
             new Course("PHYS 141", 4),
             new Course("CPE 203", 4),
             new Course("CPE 225", 4),
