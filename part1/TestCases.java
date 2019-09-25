@@ -9,6 +9,7 @@ import java.util.Map;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 
@@ -31,8 +32,14 @@ public class TestCases
    @Test
    public void testSimpleIf3()
    {
-      fail("Missing SimpleIf3");
       /* TO DO: Write one more valid test case. */
+      assertEquals(10.0, SimpleIf.max(10.0, 10.0), DELTA);
+   }
+
+   @Test
+   public void testSimpleIf4()
+   {
+      assertEquals(4.5, SimpleIf.max(4.5, 4.0), DELTA);
    }
 
    @Test
@@ -50,9 +57,9 @@ public class TestCases
    @Test
    public void testSimpleLoop3()
    {
-      fail("Missing SimpleLoop3");
       /* TO DO: Write one more valid test case to make sure that
          this function is not just returning 7. */
+      assertEquals(21, SimpleLoop.sum(1, 6));
    }
 
    @Test
@@ -76,8 +83,10 @@ public class TestCases
    @Test
    public void testSimpleArray3()
    {
-      fail("Missing SimpleArray3");
       /* TO DO: Add a new test case. */
+      assertArrayEquals(
+         new int[] {169, 64, 36, 1},
+         SimpleArray.squareAll(new int[] {13, 8, 6, 1}));
    }
 
    @Test
@@ -94,8 +103,20 @@ public class TestCases
    @Test
    public void testSimpleList2()
    {
-      fail("Missing SimpleList2");
       /* TO DO: Add a new test case. */
+      List<Integer> input = 
+         new LinkedList<Integer>(Arrays.asList(new Integer[] {4, 5, 6, 7}));
+      List<Integer> expected =
+         new ArrayList<Integer>(Arrays.asList(new Integer[] {16, 25, 36, 49}));
+   }
+
+   @Test
+   public void testSimpleList3()
+   {
+      List<Integer> input =
+         new LinkedList<Integer>(Arrays.asList(new Integer[] {-2, -3, -10}));
+      List<Integer> expected =
+         new ArrayList<Integer>(Arrays.asList(new Integer[] {4, 9, 100}));
    }
 
    @Test
@@ -113,8 +134,14 @@ public class TestCases
    @Test
    public void testBetterLoop3()
    {
-      fail("Missing BetterLoop3");
       /* TO DO: Write a valid test case where the expected result is false. */
+      assertFalse(BetterLoop.contains(new int[] {69, 420, 357}, 101));
+   }
+
+   @Test
+   public void testBetterLoop4()
+   {
+      assertTrue(BetterLoop.contains(new int[] {56, 789, 10, 34, 88}, 10));
    }
 
    @Test
@@ -157,7 +184,32 @@ public class TestCases
    @Test
    public void testExampleMap2()
    {
-      fail("Missing ExampleMap2");
       /* TO DO: Write another valid test case. */
+      List<String> expected = Arrays.asList("Viana", "Andrew", "Zach");
+      Map<String, List<Course>> courseListsByStudent = new HashMap<>();
+
+      courseListsByStudent.put("Viana",
+         Arrays.asList(
+            new Course("MU 101", 4),
+            new Course("FSN 250", 4),
+            new Course("CPE 203", 4),
+            new Course("CPE 225", 4)));
+      courseListsByStudent.put("Andrew",
+         Arrays.asList(                                                                                                             new Course("CPE 101", 4),
+            new Course("PHYS 141", 4),
+            new Course("CPE 203", 4),
+            new Course("CPE 225", 4),
+            new Course("POLS 222", 2)));
+      courseListsByStudent.put("Zach",
+         Arrays.asList(
+            new Course("CPE 123", 4),
+            new Course("CPE 321", 4),
+            new Course("CPE 471", 4),
+            new Course("CPE 473", 4)));
+
+      assertEquals(new HashSet<>(expected),
+         new HashSet<>(ExampleMap.highEnrollmentStudents(
+            courseListsByStudent, 12)));
+
    }
 }
