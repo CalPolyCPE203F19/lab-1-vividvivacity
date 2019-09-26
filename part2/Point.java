@@ -26,7 +26,11 @@ public class Point {
    }
 
    public double getAngle() {
-      return Math.atan(y / x);
+      if (x == 0.0) {
+         return (Math.PI / 2);
+      } else {
+         return (Math.abs(Math.atan(y / x)));
+      }
    }
 
    public Point rotate90() {
