@@ -50,8 +50,12 @@ public class TestCases
    {
       assertEquals((Math.PI / 4), new Point(1.0, 1.0).getAngle(), DELTA);
       assertEquals((Math.PI / 2), new Point(0.0, 4.0).getAngle(), DELTA);
-      assertEquals((Math.PI / 6), new Point((Math.sqrt(3) / 2), -0.5).getAngle(), DELTA);
-      assertEquals(0.0, new Point(-69.42, 0.0).getAngle(), DELTA);
+      assertEquals((5 * (Math.PI / 6)), new Point((Math.sqrt(3) / -2), 0.5).getAngle(), DELTA);
+      assertEquals((-3 * (Math.PI / 4)), new Point(-1.0, -1.0).getAngle(), DELTA);
+      assertEquals((Math.PI / -4), new Point(1.0, -1.0).getAngle(), DELTA);
+      assertEquals((Math.PI / -2), new Point(0.0, -4.0).getAngle(), DELTA);
+      assertEquals(Math.PI, new Point(-69.42, 0.0).getAngle(), DELTA);
+      assertEquals(0.0, new Point(37.0, 0.0).getAngle(), DELTA);
    }
 
    @Test

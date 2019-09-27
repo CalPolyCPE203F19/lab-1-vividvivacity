@@ -26,10 +26,19 @@ public class Point {
    }
 
    public double getAngle() {
-      if (x == 0.0) {
+      double originalAngle = Math.atan(y / x);
+      if (x < 0.0 && y > 0.0) {
+         return (Math.PI + originalAngle);
+      } else if (x < 0.0 && y < 0.0)  {
+         return (originalAngle - Math.PI);         
+      } else if (x == 0.0 && y > 0.0) {
          return (Math.PI / 2);
+      } else if (x == 0.0 && y < 0.0) {
+         return (Math.PI / -2);
+      } else if (x < 0.0 && y == 0.0) {
+         return (Math.PI);
       } else {
-         return (Math.abs(Math.atan(y / x)));
+         return Math.atan(y / x);
       }
    }
 
